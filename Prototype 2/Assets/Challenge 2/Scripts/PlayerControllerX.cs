@@ -1,18 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerControllerX : MonoBehaviour
 {
     public GameObject dogPrefab;
+    public float cooldown = 1.5f;
+    private float lastShootTime = -Mathf.Infinity;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        // On spacebar press, send dog
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= lastShootTime + cooldown)
         {
             Instantiate(dogPrefab, transform.position, dogPrefab.transform.rotation);
+            lastShootTime = Time.time;
+
         }
     }
 }
+
+
