@@ -118,9 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2031f68d73282b3438c520999826c7a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyOutOfBounds
-  offset: 10
-  boundTop: 1
-  boundBottom: 1
+  offsetX: 30
+  offsetZ: 20
 --- !u!65 &-6373085353855628161
 BoxCollider:
   m_ObjectHideFlags: 0
