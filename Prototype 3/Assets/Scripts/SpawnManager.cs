@@ -4,19 +4,22 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject obstaclePrefab;
-    public Vector2 spawnInterval = new Vector2(0.5f, 1.0f);
 
-    private void Start()
-    {
-        StartCoroutine(SpawnCoroutine());
-    }
+    public float minDistance = 5f;
+    public float maxDistance = 10f;
 
-    private IEnumerator SpawnCoroutine()
+    private IEnumerator Start()
     {
         while (true)
         {
             Spawn();
-            yield return new WaitForSeconds(Random.Range(spawnInterval.x, spawnInterval.y));
+
+            float speed = GameManager.Instance.Speed;
+
+            float distance = Random.Range(minDistance, maxDistance);
+            float delay = distance / speed;
+
+            yield return new WaitForSeconds(delay);
         }
     }
 
@@ -27,11 +30,17 @@ public class SpawnManager : MonoBehaviour
 
     private void OnEnable()
     {
-        GameEvents.OnGameOver += StopAllCoroutines;
+        GameEvents.OnGameOver += StopSpawning;
     }
 
     private void OnDisable()
     {
-        GameEvents.OnGameOver -= StopAllCoroutines;
+        GameEvents.OnGameOver -= StopSpawning;
+    }
+
+    private void StopSpawning()
+    {
+        StopAllCoroutines();
+        enabled = false;
     }
 }

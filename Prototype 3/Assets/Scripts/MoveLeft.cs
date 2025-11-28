@@ -2,11 +2,10 @@ using UnityEngine;
 
 public class MoveLeft : MonoBehaviour
 {
-    public float speed = 10.0f;
-
+    private float Speed => GameManager.Instance.Speed;
     private void Update()
     {
-        transform.Translate(speed * Time.deltaTime * Vector3.left);
+        transform.Translate(Speed * Time.deltaTime * Vector3.left);
         if (transform.position.y < -10) Destroy(gameObject);
     }
 
