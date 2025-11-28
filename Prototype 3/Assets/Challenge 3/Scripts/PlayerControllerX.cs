@@ -33,7 +33,7 @@ public class PlayerControllerX : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         if (transform.position.y >= 14.4)
         {
