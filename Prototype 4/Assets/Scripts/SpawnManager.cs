@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityTimer;
 
@@ -44,7 +43,7 @@ public class SpawnManager : MonoBehaviour
 
     private void SpawnRandom(GameObject[] prefabs)
     {
-        GameObject prefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+        GameObject prefab = prefabs[Random.Range(0, prefabs.Length)];
         Spawn(prefab);
     }
 

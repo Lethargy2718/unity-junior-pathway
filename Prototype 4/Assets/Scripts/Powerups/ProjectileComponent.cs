@@ -9,7 +9,7 @@ public class ProjectileComponent : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && canShoot)
+        if (Input.GetMouseButton(0) && canShoot)
         {
             ShootAllEnemies();
             canShoot = false;
@@ -32,7 +32,7 @@ public class ProjectileComponent : MonoBehaviour
 
     private void Shoot(Enemy enemy)
     {
-        Projectile proj = Instantiate(projectilePrefab, enemy.transform);
+        Projectile proj = Instantiate(projectilePrefab, transform.position, Quaternion.LookRotation(enemy.transform.position));
 
         if (proj.TryGetComponent<FollowTarget>(out var followComponent))
         {

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8073158020963946577
+--- !u!1 &6143718206506048787
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 590515955684335610}
-  - component: {fileID: 3460218198413070359}
-  - component: {fileID: 6237324896232363222}
-  - component: {fileID: 6768298387671019588}
-  - component: {fileID: 7255846907753401393}
-  - component: {fileID: -3437722683858195111}
+  - component: {fileID: 5371292701739472081}
+  - component: {fileID: 4371992055870021919}
+  - component: {fileID: 8480593295932567056}
+  - component: {fileID: 8579889523263446388}
+  - component: {fileID: 5985172162858471424}
+  - component: {fileID: 8571762567866935860}
   m_Layer: 0
-  m_Name: Powerup
+  m_Name: ProjectilePowerupPickup
   m_TagString: Powerup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &590515955684335610
+--- !u!4 &5371292701739472081
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8073158020963946577}
+  m_GameObject: {fileID: 6143718206506048787}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0.19951, y: -0.21, z: -2.02648}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3460218198413070359
+--- !u!33 &4371992055870021919
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8073158020963946577}
-  m_Mesh: {fileID: 4300000, guid: 7b2e43c7f0b75f54789417d03a4eb3cb, type: 3}
---- !u!23 &6237324896232363222
+  m_GameObject: {fileID: 6143718206506048787}
+  m_Mesh: {fileID: 4300000, guid: c8e9a715daac24048a124a1f8e3487fa, type: 3}
+--- !u!23 &8480593295932567056
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8073158020963946577}
+  m_GameObject: {fileID: 6143718206506048787}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -69,7 +69,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9c0880e4cd8a8704e82b6940624b569a, type: 2}
+  - {fileID: 2100000, guid: 41680dad0f0243748b4e228f49a2e3c4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,13 +92,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6768298387671019588
+--- !u!65 &8579889523263446388
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8073158020963946577}
+  m_GameObject: {fileID: 6143718206506048787}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -113,29 +113,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.8617554, y: 0.8617494, z: 0.20007595}
   m_Center: {x: 0.000000014901161, y: 0.00000011920929, z: 0.000000014901161}
---- !u!114 &7255846907753401393
+--- !u!114 &5985172162858471424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8073158020963946577}
+  m_GameObject: {fileID: 6143718206506048787}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ec6fe2ff726a2b43a888d2ba0d5c393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rotate
   rotationSpeed: 150
---- !u!114 &-3437722683858195111
+--- !u!114 &8571762567866935860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8073158020963946577}
+  m_GameObject: {fileID: 6143718206506048787}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8985931c2f3ee34d84e104e40c1f71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerupPickup
-  powerup: {fileID: 11400000, guid: 1fdb41d119adddb45a29bb38b86d97b8, type: 2}
+  powerup: {fileID: 11400000, guid: 80a934bc494e8584a9910895ad3c6ce4, type: 2}

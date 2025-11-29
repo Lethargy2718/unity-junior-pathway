@@ -18,7 +18,7 @@ public class FollowTarget : MonoBehaviour
 
     private void Update()
     {
-        Vector3 dir = Vector3.up;
+        Vector3 dir = Vector3.down;
         
         if (target != null)
         {

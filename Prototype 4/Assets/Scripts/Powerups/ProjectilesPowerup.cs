@@ -3,28 +3,34 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Powerups/Projectiles")]
 public class ProjectilesPowerup : Powerup
 {
-    public float duration = 5.0f;
+    public float duration = 4.0f;
+    public float cooldown = 0.5f;
     public override float Duration => duration;
-    public float impulse = 60.0f;
 
-    private KnockbackComponent knockbackComponent;
+    public Projectile projectile;
+
+    private ProjectileComponent projectileComponent;
 
     public override void OnApply(GameObject target)
     {
-        if (target.TryGetComponent<KnockbackComponent>(out var component))
+        if (target.TryGetComponent<ProjectileComponent>(out var component))
         {
             Destroy(component);
         }
 
-        knockbackComponent = target.AddComponent<KnockbackComponent>();
-        knockbackComponent.knockbackImpulse = impulse;
+        projectileComponent = target.AddComponent<ProjectileComponent>();
+        projectileComponent.projectilePrefab = projectile;
+        projectileComponent.cooldown = cooldown;
     }
 
     public override void OnRemove(GameObject target)
     {
-        if (knockbackComponent != null)
+        if (projectileComponent != null)
         {
-            Destroy(knockbackComponent);
+            Destroy(projectileComponent);
         }
+
+        Projectile[] projectiles = FindObjectsByType<Projectile>(FindObjectsSortMode.None);
+        foreach (var projectile in projectiles) Destroy(projectile.gameObject);
     }
 }

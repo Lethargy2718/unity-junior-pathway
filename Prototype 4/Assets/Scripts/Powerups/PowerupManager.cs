@@ -34,11 +34,11 @@ public class PowerupManager : MonoBehaviour
 
     public void Apply(Powerup powerup)
     {
+
         if (hasPowerup)
         {
             RemoveCurrentPowerup();
         }
-
         hasPowerup = true;
         powerupIndicator.SetActive(true);
 
