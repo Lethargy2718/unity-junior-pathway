@@ -811,7 +811,7 @@ MonoBehaviour:
   offsetRange: 8
   powerupSpawnDelay: 5
   bossWavePowerupSpawnDelay: 2
-  bossSpawnInterval: 1
+  bossSpawnInterval: 5
 --- !u!1 &1271578910
 GameObject:
   m_ObjectHideFlags: 0
