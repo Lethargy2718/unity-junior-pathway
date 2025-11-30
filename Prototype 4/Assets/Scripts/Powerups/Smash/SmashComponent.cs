@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityTimer;
 
-public class SmashComponent : MonoBehaviour
+public class SmashComponent : MonoBehaviour, ISafeRemovable
 {
     public float ascentTime = 0.23f;
     public float knockbackImpulse = 75f;
@@ -15,6 +15,9 @@ public class SmashComponent : MonoBehaviour
     private enum SmashState { Idle, Ascending, Falling, Cooldown }
     private SmashState state = SmashState.Idle;
 
+    public bool IsSafeToRemove => state == SmashState.Idle;
+    public bool SafeRemoveRequested { get; set; } = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -22,6 +25,11 @@ public class SmashComponent : MonoBehaviour
 
     private void Update()
     {
+        if (SafeRemoveRequested && IsSafeToRemove) {
+            Destroy(this);
+            return;
+        }
+
         if (Input.GetMouseButton(0) && state == SmashState.Idle)
         {
             StartSmash();
@@ -90,6 +98,18 @@ public class SmashComponent : MonoBehaviour
                 float finalImpulse = knockbackImpulse * (1f - factor);
                 knockback.ApplyKnockback(transform.position, finalImpulse);
             }
+        }
+    }
+
+    public void SafeRemove()
+    {
+        if (IsSafeToRemove)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            SafeRemoveRequested = true;
         }
     }
 

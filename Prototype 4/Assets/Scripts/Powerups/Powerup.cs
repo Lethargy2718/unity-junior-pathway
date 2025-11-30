@@ -15,9 +15,13 @@ public abstract class Powerup<T> : ScriptableObject, IPowerup where T : Componen
 
     protected void RemoveComponent(GameObject target)
     {
-        if (target != null && target.TryGetComponent<T>(out var component))
+        if (target != null && target.TryGetComponent<T>(out var comp))
         {
-            Destroy(component);
+            if (comp is ISafeRemovable safeRemovable)
+            {
+                safeRemovable.SafeRemove();
+            }
+            else Destroy(comp);
         }
     }
 
@@ -25,7 +29,11 @@ public abstract class Powerup<T> : ScriptableObject, IPowerup where T : Componen
     {
         if (component != null)
         {
-            Destroy(component);
+            if (component is ISafeRemovable safeRemovable)
+            {
+                safeRemovable.SafeRemove();
+            }
+            else Destroy(component);
         }
     } 
 

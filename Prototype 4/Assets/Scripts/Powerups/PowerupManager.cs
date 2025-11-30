@@ -41,7 +41,10 @@ public class PowerupManager : MonoBehaviour
         this.AttachTimer(powerup.Duration, () =>
         {
             RemovePowerup(powerup);
-            spawnManager.WaitThenSpawnPowerup();
+            if (!HasPowerup)
+            {
+                spawnManager.WaitThenSpawnPowerup();
+            }
         });
     }
 

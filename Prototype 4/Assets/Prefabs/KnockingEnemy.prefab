@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 232c38d387ba0a14ab21c6dddc58ffa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Knockback
-  knockbackResistance: 0
+  knockbackResistance: 0.2
 --- !u!114 &2656696417452264818
 MonoBehaviour:
   m_ObjectHideFlags: 0
