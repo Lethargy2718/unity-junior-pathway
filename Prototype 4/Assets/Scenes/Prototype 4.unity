@@ -809,7 +809,7 @@ MonoBehaviour:
   - {fileID: 6143718206506048787, guid: 2acc9318cfde50e40b9d0a8e49c18240, type: 3}
   bossPrefab: {fileID: 4724377476314424435, guid: 1b8d578dfcb95a34fa94a20b6b0d0d88, type: 3}
   offsetRange: 8
-  powerupSpawnDelay: 5
+  powerupSpawnDelay: 6
   bossWavePowerupSpawnDelay: 2
   bossSpawnInterval: 5
 --- !u!1 &1271578910
