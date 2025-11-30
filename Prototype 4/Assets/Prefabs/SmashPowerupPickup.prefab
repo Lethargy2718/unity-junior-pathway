@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8985931c2f3ee34d84e104e40c1f71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerupPickup
-  powerup: {fileID: 11400000, guid: 469a82af5fab1aa418ca3a50cd57c2b2, type: 2}
+  powerupSO: {fileID: 11400000, guid: 469a82af5fab1aa418ca3a50cd57c2b2, type: 2}
 --- !u!65 &8393340777174943559
 BoxCollider:
   m_ObjectHideFlags: 0

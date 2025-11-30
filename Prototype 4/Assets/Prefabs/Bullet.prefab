@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FollowTarget
   target: {fileID: 0}
-  acceleration: 6
+  acceleration: 10
 --- !u!114 &3884266051101881797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   knockbackImpulse: 30
-  rotationSpeed: 100
+  rotationSpeed: 360
 --- !u!54 &6167126502724681872
 Rigidbody:
   m_ObjectHideFlags: 0

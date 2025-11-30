@@ -10,7 +10,7 @@ public class PowerupManager : MonoBehaviour
     
 
     private bool hasPowerup = false;
-    private Powerup currentPowerup;
+    private IPowerup currentPowerup;
 
     private void Awake()
     {
@@ -32,7 +32,7 @@ public class PowerupManager : MonoBehaviour
         }
     }
 
-    public void Apply(Powerup powerup)
+    public void Apply(IPowerup powerup)
     {
 
         if (hasPowerup)
@@ -42,7 +42,7 @@ public class PowerupManager : MonoBehaviour
         hasPowerup = true;
         powerupIndicator.SetActive(true);
 
-        powerup.OnApply(player);
+        powerup.Apply(player);
         currentPowerup = powerup;
 
         this.AttachTimer(powerup.Duration, () =>
@@ -56,7 +56,7 @@ public class PowerupManager : MonoBehaviour
     {
         if (currentPowerup != null)
         {
-            currentPowerup.OnRemove(player);
+            currentPowerup.Remove(player);
             currentPowerup = null;
         }
 

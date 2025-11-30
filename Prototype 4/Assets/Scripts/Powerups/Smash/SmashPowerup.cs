@@ -2,7 +2,7 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "Powerups/Smash")]
 
-public class SmashPowerup : Powerup
+public class SmashPowerup : Powerup<SmashComponent>
 {
     public float duration = 5.0f;
     public override float Duration => duration;
@@ -12,29 +12,12 @@ public class SmashPowerup : Powerup
     public float cooldown = 1f;
     public float verticalSpeed = 60f;
 
-
-    private SmashComponent smashComponent;
-
-    public override void OnApply(GameObject target)
+    protected override void OnApply(GameObject target)
     {
-        if (target.TryGetComponent<SmashComponent>(out var component))
-        {
-            Destroy(component);
-        }
-
-        smashComponent = target.AddComponent<SmashComponent>();
-        smashComponent.ascentTime = ascentTime;
-        smashComponent.knockbackImpulse = knockbackImpulse;
-        smashComponent.maxDistance = maxDistance;
-        smashComponent.cooldown = cooldown;
-        smashComponent.verticalSpeed = verticalSpeed;
-    }
-
-    public override void OnRemove(GameObject target)
-    {
-        if (smashComponent != null)
-        {
-            Destroy(smashComponent);
-        }
+        component.ascentTime = ascentTime;
+        component.knockbackImpulse = knockbackImpulse;
+        component.maxDistance = maxDistance;
+        component.cooldown = cooldown;
+        component.verticalSpeed = verticalSpeed;
     }
 }

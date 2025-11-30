@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KnockingEnemy
   arenaRadius: 40
   arenaCenter: {x: 0, y: 1.5, z: 0}
-  knockbackImpulse: 5
+  knockbackImpulse: 8
 --- !u!114 &8560521126925321839
 MonoBehaviour:
   m_ObjectHideFlags: 0

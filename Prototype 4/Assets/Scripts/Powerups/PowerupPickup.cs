@@ -2,13 +2,17 @@ using UnityEngine;
 
 public class PowerupPickup : MonoBehaviour
 {
-    public Powerup powerup;
+    public ScriptableObject powerupSO;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            PowerupManager.Instance.Apply(powerup);
+            if (powerupSO is IPowerup powerup)
+            {
+                PowerupManager.Instance.Apply(powerup);
+            }
+
             Destroy(gameObject);
         }
     }
