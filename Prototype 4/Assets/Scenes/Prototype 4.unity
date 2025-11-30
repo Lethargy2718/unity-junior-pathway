@@ -811,7 +811,7 @@ MonoBehaviour:
   offsetRange: 8
   powerupSpawnDelay: 5
   bossWavePowerupSpawnDelay: 2
-  bossSpawnInterval: 5
+  bossSpawnInterval: 1
 --- !u!1 &1271578910
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,7 +965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bbe372d22fb37b43a2680e40442b024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  acceleration: 3
+  acceleration: 35
   dashCooldown: 5
   dashImpulse: 20
 --- !u!114 &1271578918

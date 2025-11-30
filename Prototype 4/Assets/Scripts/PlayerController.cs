@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
         focalPoint = GameObject.Find("Focal Point");
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         if (transform.position.y < -5.0f)
         {
