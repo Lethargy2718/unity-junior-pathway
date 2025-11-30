@@ -167,7 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed94db4283f10b34caba6b50bb3455c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KnockingEnemy
-  knockbackImpulse: 25
+  arenaRadius: 40
+  arenaCenter: {x: 0, y: 1.5, z: 0}
+  knockbackImpulse: 5
 --- !u!114 &8560521126925321839
 MonoBehaviour:
   m_ObjectHideFlags: 0

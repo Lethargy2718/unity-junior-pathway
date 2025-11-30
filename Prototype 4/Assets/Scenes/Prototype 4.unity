@@ -448,13 +448,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211016355}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.71307, y: 0.6397293, z: -0.07879667, w: 0.27580565}
+  m_LocalRotation: {x: 0.5514122, y: 0.7833686, z: -0.014926719, w: 0.28645307}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 150.386, y: -16.06, z: -88.065}
+  m_LocalEulerAnglesHint: {x: 160.166, y: -27.360992, z: -114.59}
 --- !u!114 &1211016358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -633,7 +633,7 @@ GameObject:
   - component: {fileID: 1262797889}
   m_Layer: 0
   m_Name: SpawnManager
-  m_TagString: Untagged
+  m_TagString: Powerup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -671,6 +671,7 @@ MonoBehaviour:
   powerupPrefabs:
   - {fileID: 8073158020963946577, guid: 24fe7a969dca161488d35ae934cde1fb, type: 3}
   - {fileID: 6143718206506048787, guid: b4940b189fcf72f4e8735639ca1c6e12, type: 3}
+  - {fileID: 6143718206506048787, guid: 2acc9318cfde50e40b9d0a8e49c18240, type: 3}
   offsetRange: 8
   powerupSpawnDelay: 10
 --- !u!1 &1271578910
@@ -796,7 +797,7 @@ Rigidbody:
   m_GameObject: {fileID: 1271578910}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 5
+  m_LinearDamping: 2
   m_AngularDamping: 0.1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -813,7 +814,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &1271578916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -826,9 +827,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bbe372d22fb37b43a2680e40442b024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  acceleration: 8
+  acceleration: 2
   dashCooldown: 4
-  dashImpulse: 25
+  dashImpulse: 15
 --- !u!114 &1271578918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -853,6 +854,10 @@ PrefabInstance:
     - target: {fileID: 1301643505922104, guid: 961be46ca9a355943ae3f65c47741bb0, type: 3}
       propertyPath: m_Name
       value: Island
+      objectReference: {fileID: 0}
+    - target: {fileID: 1301643505922104, guid: 961be46ca9a355943ae3f65c47741bb0, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4625923886776944, guid: 961be46ca9a355943ae3f65c47741bb0, type: 3}
       propertyPath: m_RootOrder
@@ -930,7 +935,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1403545341}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 001d50b6041fc8148ad6c8065241e14a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

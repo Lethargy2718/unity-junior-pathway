@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 157d3c8c6aac5e249831a87c73fae4ba, type: 3}
-  m_Name: ProjectilesPowerup
-  m_EditorClassIdentifier: Assembly-CSharp::ProjectilesPowerup
+  m_Script: {fileID: 11500000, guid: fe08df7d86c898c41a12cadb57635537, type: 3}
+  m_Name: SmashPowerup
+  m_EditorClassIdentifier: Assembly-CSharp::SmashPowerup
   duration: 5
-  cooldown: 0.35
-  projectile: {fileID: 3884266051101881797, guid: ee98ebeb80a8088439921ed78e7f67a1, type: 3}
+  ascentTime: 0.23
+  knockbackImpulse: 75
+  maxDistance: 30
+  cooldown: 1
+  verticalSpeed: 60

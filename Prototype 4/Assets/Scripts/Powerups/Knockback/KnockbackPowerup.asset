@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e72a9ed392d9c940a57a1d02a9e503d, type: 3}
   m_Name: KnockbackPowerup
   m_EditorClassIdentifier: Assembly-CSharp::KnockbackPowerup
+  duration: 5
+  impulse: 150
