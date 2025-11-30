@@ -7,10 +7,9 @@ public class PowerupManager : MonoBehaviour
     public GameObject powerupIndicator;
     public SpawnManager spawnManager;
     public GameObject player;
-    
 
-    private bool hasPowerup = false;
-    private IPowerup currentPowerup;
+    private int numPowerups = 0;
+    private bool HasPowerup => numPowerups > 0;
 
     private void Awake()
     {
@@ -26,7 +25,7 @@ public class PowerupManager : MonoBehaviour
 
     private void Update()
     {
-        if (hasPowerup && powerupIndicator != null)
+        if (HasPowerup && powerupIndicator != null)
         {
             powerupIndicator.transform.position = player.transform.position + new Vector3(0, -0.5f, 0);
         }
@@ -34,33 +33,24 @@ public class PowerupManager : MonoBehaviour
 
     public void Apply(IPowerup powerup)
     {
-
-        if (hasPowerup)
-        {
-            RemoveCurrentPowerup();
-        }
-        hasPowerup = true;
+        numPowerups++;
         powerupIndicator.SetActive(true);
 
         powerup.Apply(player);
-        currentPowerup = powerup;
 
         this.AttachTimer(powerup.Duration, () =>
         {
-            RemoveCurrentPowerup();
+            RemovePowerup(powerup);
             spawnManager.WaitThenSpawnPowerup();
         });
     }
 
-    private void RemoveCurrentPowerup()
+    private void RemovePowerup(IPowerup powerup)
     {
-        if (currentPowerup != null)
-        {
-            currentPowerup.Remove(player);
-            currentPowerup = null;
-        }
+        if (powerup == null) return;
 
-        hasPowerup = false;
-        powerupIndicator.SetActive(false);
+        numPowerups--;
+        powerup.Remove(player);
+        if (!HasPowerup) powerupIndicator.SetActive(false);
     }
 }
