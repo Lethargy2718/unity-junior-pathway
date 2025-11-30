@@ -26,7 +26,8 @@ public class SpawnManager : MonoBehaviour
     {
         if (Enemy.enemyCount == 0)
         {
-            SpawnWave(wave++ + 2);
+            SpawnWave(wave + 2);
+            wave++;
         }
     }
 
@@ -41,10 +42,11 @@ public class SpawnManager : MonoBehaviour
 
     private void SpawnWave(int enemyCount)
     {
-        if ((wave - 1) % bossSpawnInterval == 0 && wave != 0)
+        if ((wave - 1) % bossSpawnInterval == 0)
         {
             for (int i = 0; i < wave / bossSpawnInterval; i++)
             {
+                Debug.Log($"{wave} {bossSpawnInterval}");
                 Instantiate(bossPrefab, new Vector3(0, 15.0f, 0), Quaternion.identity);
             }
             return;
