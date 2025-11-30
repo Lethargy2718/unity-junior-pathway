@@ -3,28 +3,41 @@ using UnityEngine;
 public class FollowTarget : MonoBehaviour
 {
     public Transform target;
-    public float acceleration = 2f;
+
+    public enum FollowMode { Acceleration, Velocity }
+    public FollowMode mode = FollowMode.Acceleration;
+
+    public float acceleration = 30f;
+    public float speed = 30.0f;
+
     private Rigidbody rb;
 
-    private void Awake()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
-
         if (target == null)
         {
             target = GameObject.Find("Player").transform;
         }
     }
 
-    private void Update()
+    void FixedUpdate()
     {
-        Vector3 dir = Vector3.zero;
-        
-        if (target != null)
-        {
-            dir = (target.position - rb.position).normalized;
-        }
+        if (target == null) return;
 
-        rb.AddForce(acceleration * dir, ForceMode.Acceleration);
+        Vector3 dir = (target.position - transform.position).normalized;
+
+        switch (mode)
+        {
+            case FollowMode.Acceleration:
+                rb.AddForce(dir * acceleration, ForceMode.Acceleration);
+                break;
+
+            case FollowMode.Velocity:
+                rb.linearVelocity = dir * speed;
+                break;
+            default:
+                break;
+        }
     }
 }

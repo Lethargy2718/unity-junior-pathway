@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe08df7d86c898c41a12cadb57635537, type: 3}
   m_Name: SmashPowerup
   m_EditorClassIdentifier: Assembly-CSharp::SmashPowerup
-  duration: 5
+  duration: 3
   ascentTime: 0.23
-  knockbackImpulse: 75
-  maxDistance: 30
+  knockbackImpulse: 160
+  maxDistance: 40
   cooldown: 1
   verticalSpeed: 60

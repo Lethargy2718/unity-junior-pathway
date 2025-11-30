@@ -32,7 +32,6 @@ public class ProjectileComponent : MonoBehaviour
             Shoot(enemy);
         }
     }
-
     private void Shoot(Enemy enemy)
     {
         Projectile proj = Instantiate(projectilePrefab, transform.position, Quaternion.LookRotation(enemy.transform.position - transform.position));

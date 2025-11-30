@@ -124,7 +124,7 @@ Rigidbody:
   m_GameObject: {fileID: 5343363300983901884}
   serializedVersion: 5
   m_Mass: 1.75
-  m_LinearDamping: 2
+  m_LinearDamping: 3
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -183,4 +183,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FollowTarget
   target: {fileID: 0}
-  acceleration: 1
+  mode: 0
+  acceleration: 12
+  speed: 30

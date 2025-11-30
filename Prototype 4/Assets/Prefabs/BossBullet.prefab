@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1171753562418585529}
   - component: {fileID: 6585801250022424943}
   - component: {fileID: 221197540448182769}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3006957995358947061}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.369}
+  m_LocalPosition: {x: 0, y: 0, z: 0.325}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,8 +44,8 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 4.86
-  m_Range: 1.2891653
+  m_Intensity: 6.5
+  m_Range: 0.28037876
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 509129765138064977}
   - component: {fileID: 3409269252228024280}
   - component: {fileID: 7201703333441463879}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: BulletBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1a96b95af85f1af48b560ef6bca6cf57, type: 2}
+  - {fileID: 2100000, guid: b8b15eccbb2cbaa4bb4b73ea27d08dff, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -249,12 +249,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7146957519179768391}
+  - component: {fileID: 6167126502724681872}
   - component: {fileID: 1093586738358310313}
   - component: {fileID: 3884266051101881797}
-  - component: {fileID: 6167126502724681872}
-  m_Layer: 6
-  m_Name: Bullet
-  m_TagString: Bullet
+  m_Layer: 9
+  m_Name: BossBullet
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -276,36 +276,6 @@ Transform:
   - {fileID: 1171753562418585529}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1093586738358310313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5459462023326244627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62bbcf217efed774b9b710b139124322, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FollowTarget
-  target: {fileID: 0}
-  mode: 1
-  acceleration: 0
-  speed: 30
---- !u!114 &3884266051101881797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5459462023326244627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7339a3329d8a5f14d925ab287faa2992, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  knockbackImpulse: 8
-  rotationSpeed: 360
 --- !u!54 &6167126502724681872
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -333,3 +303,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1093586738358310313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5459462023326244627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62bbcf217efed774b9b710b139124322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FollowTarget
+  target: {fileID: 0}
+  mode: 1
+  acceleration: 0
+  speed: 6
+--- !u!114 &3884266051101881797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5459462023326244627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7339a3329d8a5f14d925ab287faa2992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Projectile
+  knockbackImpulse: 20
+  rotationSpeed: 360

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 157d3c8c6aac5e249831a87c73fae4ba, type: 3}
   m_Name: ProjectilesPowerup
   m_EditorClassIdentifier: Assembly-CSharp::ProjectilesPowerup
-  duration: 6
+  duration: 3
   cooldown: 0.2
   projectile: {fileID: 3884266051101881797, guid: ee98ebeb80a8088439921ed78e7f67a1, type: 3}

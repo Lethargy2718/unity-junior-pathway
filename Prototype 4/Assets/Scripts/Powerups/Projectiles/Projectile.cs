@@ -16,7 +16,7 @@ public class Projectile : MonoBehaviour
         if (followTarget != null && followTarget.target != null)
         {
             Quaternion targetRotation = Quaternion.LookRotation(followTarget.target.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360 * Time.deltaTime);
         }
     }
 
@@ -24,12 +24,10 @@ public class Projectile : MonoBehaviour
     {
         GameObject obj = collision.gameObject;
 
-        if (obj.CompareTag("Enemy") &&
-            obj.TryGetComponent<Knockback>(out var enemyKnockback))
+        if (obj.TryGetComponent<Knockback>(out var knockback))
         {
-            enemyKnockback.ApplyKnockback(transform.position, knockbackImpulse);
+            knockback.ApplyKnockback(transform.position, knockbackImpulse);
         }
-
         Destroy(gameObject);
     }
 }

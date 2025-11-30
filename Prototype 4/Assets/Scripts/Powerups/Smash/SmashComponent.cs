@@ -35,7 +35,6 @@ public class SmashComponent : MonoBehaviour, ISafeRemovable
             StartSmash();
         }
     }
-
     private void FixedUpdate()
     {
         switch (state)
@@ -65,25 +64,30 @@ public class SmashComponent : MonoBehaviour, ISafeRemovable
     {
         if (collision.gameObject.CompareTag("Ground") && state == SmashState.Falling)
         {
-            if (ascentTimer != null && !ascentTimer.isCompleted)
-            {
-                ascentTimer.Cancel();
-                ascentTimer = null;
-            }
-
-            rb.linearVelocity = Vector3.zero;
-
-            Vector3 pos = new Vector3(transform.position.x, 0f, transform.position.z);
-            rb.position = pos;
-
-            ApplyKnockbackToEnemies();
-
-            state = SmashState.Cooldown;
-            this.AttachTimer(cooldown, () =>
-            {
-                state = SmashState.Idle;
-            });
+            Smash();
         }
+    }
+
+    private void Smash()
+    {
+        if (ascentTimer != null && !ascentTimer.isCompleted)
+        {
+            ascentTimer.Cancel();
+            ascentTimer = null;
+        }
+
+        rb.linearVelocity = Vector3.zero;
+
+        Vector3 pos = new Vector3(transform.position.x, 0f, transform.position.z);
+        rb.position = pos;
+
+        ApplyKnockbackToEnemies();
+
+        state = SmashState.Cooldown;
+        this.AttachTimer(cooldown, () =>
+        {
+            state = SmashState.Idle;
+        });
     }
 
     private void ApplyKnockbackToEnemies()
@@ -91,13 +95,30 @@ public class SmashComponent : MonoBehaviour, ISafeRemovable
         Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
         foreach (Enemy enemy in enemies)
         {
-            if (enemy.TryGetComponent<Knockback>(out var knockback))
+            ApplyKnockback(enemy);
+        }
+
+        GameObject[] enemyProjeciles = GameObject.FindGameObjectsWithTag("EnemyBullet");
+        foreach (GameObject projectile in enemyProjeciles)
+        {
+            if (Vector3.Distance(projectile.transform.position, transform.position) < 10.0f)
             {
-                float distance = Vector3.Distance(transform.position, enemy.transform.position);
-                float factor = Mathf.Clamp01(distance / maxDistance); // close -> smaller
-                float finalImpulse = knockbackImpulse * (1f - factor);
-                knockback.ApplyKnockback(transform.position, finalImpulse);
+                Destroy(projectile);
             }
+        }
+    }
+
+    private void ApplyKnockback(Component target)
+    {
+        if (target.TryGetComponent<Knockback>(out var knockback))
+        {
+            float distance = Vector3.Distance(transform.position, target.transform.position);
+            float factor = Mathf.Clamp01(distance / maxDistance); // close -> smaller
+            float finalImpulse = knockbackImpulse * (1f - factor);
+
+            Vector3 pos = transform.position;
+            pos.y = knockback.transform.position.y;
+            knockback.ApplyKnockback(pos, finalImpulse);
         }
     }
 

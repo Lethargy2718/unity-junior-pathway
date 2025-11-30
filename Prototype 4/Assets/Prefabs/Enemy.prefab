@@ -182,4 +182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FollowTarget
   target: {fileID: 0}
-  acceleration: 2
+  mode: 0
+  acceleration: 15
+  speed: 30

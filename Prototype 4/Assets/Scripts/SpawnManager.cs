@@ -5,56 +5,54 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
     public GameObject[] powerupPrefabs;
+    public GameObject bossPrefab;
 
     public float offsetRange = 8.0f;
     public float powerupSpawnDelay = 10.0f;
+    public float bossWavePowerupSpawnDelay = 3.0f;
+    private float PowerupSpawnDelay => IsBossWave ? bossWavePowerupSpawnDelay : powerupSpawnDelay;
+
+    public int bossSpawnInterval = 5;
+    private bool IsBossWave => wave % bossSpawnInterval == 0;
 
     private int wave = 1;
 
     private void Start()
     {
-        SpawnRandom(powerupPrefabs);
+        Spawner.SpawnRandom(powerupPrefabs, transform.position, offsetRange);
     }
 
     private void Update()
     {
         if (Enemy.enemyCount == 0)
         {
-            SpawnWave(wave++);
+            SpawnWave(wave++ + 2);
         }
     }
 
     public void WaitThenSpawnPowerup()
     {
-        this.AttachTimer(powerupSpawnDelay, () =>
+        this.AttachTimer(PowerupSpawnDelay, () =>
         {
-            SpawnRandom(powerupPrefabs);
+            Spawner.SpawnRandom(powerupPrefabs, transform.position, offsetRange);
 
         });
     }
 
     private void SpawnWave(int enemyCount)
     {
+        if ((wave - 1) % bossSpawnInterval == 0 && wave != 0)
+        {
+            for (int i = 0; i < wave / bossSpawnInterval; i++)
+            {
+                Instantiate(bossPrefab, new Vector3(0, 15.0f, 0), Quaternion.identity);
+            }
+            return;
+        }
+
         for (int i = 0; i < enemyCount; i++)
         {
-            SpawnRandom(enemyPrefabs);
+            Spawner.SpawnRandom(enemyPrefabs, transform.position, offsetRange);
         }
-    }
-
-    private void SpawnRandom(GameObject[] prefabs)
-    {
-        GameObject prefab = prefabs[Random.Range(0, prefabs.Length)];
-        Spawn(prefab);
-    }
-
-    private void Spawn(GameObject prefab)
-    {
-        Instantiate(prefab, GenerateSpawnPosition(), prefab.transform.rotation);
-    }
-
-    private Vector3 GenerateSpawnPosition()
-    {
-        Vector3 offset = new Vector3(Random.Range(-offsetRange, offsetRange), 0, Random.Range(-offsetRange, offsetRange));
-        return transform.position + offset;
     }
 }
