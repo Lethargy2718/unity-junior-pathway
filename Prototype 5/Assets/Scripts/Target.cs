@@ -31,9 +31,8 @@ public class Target : MonoBehaviour
     float RandTorque() => Random.Range(-maxTorque, maxTorque);
     Vector3 RandSpawnPos() => new Vector3(Random.Range(-xRange, xRange), yPos);
 
-    private void OnMouseDown()
+    public void DestroySelf()
     {
-        if (!GameManager.Instance.isGameActive) return;
         Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
         GameManager.Instance.Score += points;
         Destroy(gameObject);
@@ -41,8 +40,8 @@ public class Target : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!gameObject.CompareTag("Bad")) {
-            GameManager.Instance.GameOver();
+        if (other.gameObject.CompareTag("Sensor") && !gameObject.CompareTag("Bad")) {
+            GameManager.Instance.Lives--;
         }
         Destroy(gameObject);
     }
