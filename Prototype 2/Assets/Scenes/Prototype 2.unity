@@ -755,8 +755,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPooler
   pooledObjects: []
-  objectToPool: {fileID: 0}
-  amountToPool: 0
+  objectToPool: {fileID: 6505559165692490533, guid: a31749b7cf85d524a9e6809c237a2a0a, type: 3}
+  amountToPool: 10
 --- !u!1 &992285705
 GameObject:
   m_ObjectHideFlags: 0
