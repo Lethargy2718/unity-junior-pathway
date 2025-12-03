@@ -60,7 +60,13 @@ public class PlayerController : MonoBehaviour
 
     private void SpawnProjectile()
     {
-        Instantiate(projectile, transform.position, transform.rotation);
+        //Instantiate(projectile, transform.position, transform.rotation);
+        GameObject pooledProjectile = ObjectPooler.SharedInstance.GetPooledObject();
+        if (pooledProjectile != null)
+        {
+            pooledProjectile.SetActive(true); // activate it
+            pooledProjectile.transform.SetPositionAndRotation(transform.position, transform.rotation);
+        }
     }
     
     private void Rotate(Vector3 direction)

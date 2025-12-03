@@ -9,7 +9,8 @@ public class DestroyOutOfBounds : MonoBehaviour
     {
         if (transform.position.x < -offsetX || transform.position.x > offsetX || transform.position.z < -offsetZ || transform.position.z > offsetZ)
         {
-            Destroy(gameObject);
+            if (CompareTag("Projectile")) gameObject.SetActive(false);
+            else Destroy(gameObject);
         }
     }
 }

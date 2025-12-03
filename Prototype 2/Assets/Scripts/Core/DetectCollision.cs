@@ -16,7 +16,8 @@ public class DetectCollision : MonoBehaviour
             if (animalHunger.Feed(1))
             {
                 Destroy(gameObject);
-                Destroy(other.gameObject);
+                //Destroy(other.gameObject); // projectile
+                other.gameObject.SetActive(false);
                 GameManager.Instance.Score++;
             }
         }
