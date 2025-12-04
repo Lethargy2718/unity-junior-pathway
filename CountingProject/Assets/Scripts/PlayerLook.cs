@@ -17,12 +17,13 @@ public class PlayerLook : MonoBehaviour
 
     public void Look(Vector2 input)
     {
+        Debug.Log(Time.deltaTime);
         var (mouseX, mouseY) = (input.x, input.y);
 
-        yRotation -= mouseY * Time.deltaTime * ySens;
+        yRotation -= mouseY * ySens;
         yRotation = Mathf.Clamp(yRotation, -maxYRotation, maxYRotation);
 
         cam.transform.localRotation = Quaternion.Euler(yRotation, 0f, 0f);
-        transform.Rotate(Vector3.up, mouseX * Time.deltaTime * xSens);
+        transform.Rotate(Vector3.up, mouseX * xSens);
     }
 }
