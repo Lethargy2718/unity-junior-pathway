@@ -17,7 +17,6 @@ public class PlayerLook : MonoBehaviour
 
     public void Look(Vector2 input)
     {
-        Debug.Log(Time.deltaTime);
         var (mouseX, mouseY) = (input.x, input.y);
 
         yRotation -= mouseY * ySens;
