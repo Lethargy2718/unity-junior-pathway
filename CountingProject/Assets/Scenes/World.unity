@@ -2161,8 +2161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaaa114bfd96dd843881521e1a55ae72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLook
-  xSens: 55
-  ySens: 40
+  xSens: 0.088
+  ySens: 0.064
   maxYRotation: 90
 --- !u!1 &1860581314
 GameObject:
