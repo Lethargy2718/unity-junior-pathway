@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2667008939736903194}
   m_Layer: 3
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,6 +153,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   direction: {x: 0, y: 0, z: 0}
-  speed: 150
+  speed: 250
   lifeTime: 5
   psPrefab: {fileID: 6998724511241558546, guid: 6013fd34d779caa448d46898fe75c5e3, type: 3}

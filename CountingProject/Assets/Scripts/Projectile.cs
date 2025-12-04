@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-
 public class Projectile : MonoBehaviour
 {
     [HideInInspector] public Vector3 direction = Vector3.zero;
@@ -32,11 +31,18 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("collided");
-        Quaternion rotation = Quaternion.LookRotation(collision.contacts[0].normal);
-        ParticleSystem ps = Instantiate(psPrefab, transform.position, rotation);
-        ps.Play();
-        Destroy(ps.gameObject, ps.main.duration + ps.main.startLifetime.constantMax);
+        if (collision.gameObject.TryGetComponent<Target>(out var target))
+        {
+            target.GetKilled(collision);
+        }
+        else GameManager.Instance.missedShots++;
+
+        ParticleSpawner.SpawnAfterCollision(psPrefab, collision);
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.UpdateUI();
     }
 }
