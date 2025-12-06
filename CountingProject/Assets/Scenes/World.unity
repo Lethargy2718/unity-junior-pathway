@@ -306,14 +306,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113498201}
   m_Enabled: 1
-  serializedVersion: 11
+  serializedVersion: 12
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 100
   m_Range: 52.480186
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
+  m_CookieSize2D: {x: 10, y: 10}
   m_Shadows:
     m_Type: 0
     m_Resolution: -1
@@ -480,6 +480,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &177534105
 MeshFilter:
@@ -777,6 +778,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &426902211
 MeshFilter:
@@ -983,6 +985,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &711217607
 MeshFilter:
@@ -1117,6 +1120,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1161903424
 MeshFilter:
@@ -1243,6 +1247,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1243412656
 MeshFilter:
@@ -1354,6 +1359,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1278522456
 MeshFilter:
@@ -1710,9 +1716,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnTargets
   targetPrefab: {fileID: 1082276690698568787, guid: b29a606478c63854bb40cc5b7320d26a, type: 3}
-  initialDelay: 2
-  cooldown: 0.8
-  targetLifeTime: 2
+  initialDelay: 3
+  cooldown: 0.4
+  targetLifeTime: 1.5
 --- !u!65 &1470830258
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2049,6 +2055,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1678542483
 MeshFilter:
@@ -2161,8 +2168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaaa114bfd96dd843881521e1a55ae72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLook
-  xSens: 0.088
-  ySens: 0.064
+  xSens: 0.095
+  ySens: 0.075
   maxYRotation: 90
 --- !u!1 &1860581314
 GameObject:
@@ -2251,6 +2258,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1860581317
 MeshFilter:
